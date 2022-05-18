@@ -1,0 +1,7 @@
+<button class="group-container">
+    <p class="title">{{presentGroup?.title}} <span [innerHTML]="presentGroup?.iconTitle"></span></p>
+    <p class="description">{{presentGroup?.description}}</p>
+    <div class="tag-container">
+        <span *ngFor="let tag of presentGroup?.tags">{{tag}}</span>
+    </div>
+</button>

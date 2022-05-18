@@ -1,0 +1,4 @@
+<div class="present-group-container">
+    <app-informative-message [title]="'Empty List'" [description]="'You have no present groups created'" *ngIf="presentGroupList.length == 0"></app-informative-message> 
+    <app-present-group class="present-group" *ngFor="let presentGroup of presentGroupList" [presentGroup]="presentGroup"></app-present-group>
+</div>

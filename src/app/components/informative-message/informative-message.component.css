@@ -1,0 +1,21 @@
+p.message-title,
+p.message-description {
+    font-family: 'Gill Sans', sans-serif;
+}
+
+p.message-title {       
+    font-size: 18px;
+    font-weight: 600;
+
+}
+
+p.message-description {
+    color: gray; 
+}
+
+@media only screen and (max-width: 576px){ 
+    p.message-title,
+    p.message-description {
+        text-align: center;
+    }
+}

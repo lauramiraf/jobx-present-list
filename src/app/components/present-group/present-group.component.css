@@ -1,0 +1,58 @@
+button.group-container {
+    border: 2px solid #b9b7b7;
+    border-radius: 8px;
+    background: white;
+    margin-right: 20px;    
+    padding: 0 20px 20px 20px;
+    text-align: left;
+    width: 100%;   
+}
+
+button.group-container:focus {
+    background-color: #cbc2fe;
+    border-color: #8774f3;
+}
+
+p.title {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+p.description {
+    font-size: 16px;
+}
+
+div.tag-container {
+    margin-top: 30px;
+    overflow-x: auto;
+    padding: 5px 0;
+}
+
+div.tag-container span {
+    background-color: #4D9D32;
+    padding: 5px 10px;
+    border-radius: 20px;
+    margin-right: 12px;
+    color: white;
+    font-size: 14px;    
+}
+
+@media only screen and (max-width: 992px){ 
+    button.group-container {   
+        padding: 0 10px 10px 10px;
+    }
+
+    p.title {
+        margin-top: 5px;
+        font-size: 18px;
+    }
+
+    p.description {
+        font-size: 16px;
+    }
+
+    div.tag-container {
+        margin-top: 20px;
+    }
+
+}

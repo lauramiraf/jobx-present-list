@@ -1,0 +1,26 @@
+div.present-group-container {
+    display: flex;
+    overflow-x: auto; 
+    padding: 20px;
+}
+
+.present-group {
+    min-width: 40%;
+    margin-right: 20px;
+}
+
+@media only screen and (max-width: 992px){ 
+    div.present-group-container {
+        flex-flow: column;
+        overflow-x: hidden;
+        overflow-y: auto;
+        padding: 10px;
+    }
+
+    .present-group {
+        width: 100%;
+        margin-right: 0px;
+        margin-bottom: 5px;
+        max-width: 100%;
+    }
+}

@@ -1,0 +1,505 @@
+{
+    "pipes": [],
+    "interfaces": [
+        {
+            "name": "IPresentGroup",
+            "id": "interface-IPresentGroup-e665dea59b5270e1e26b0894f5642195",
+            "file": "src/app/models/present-group.model.ts",
+            "type": "interface",
+            "sourceCode": "export interface IPresentGroup {\n    title:string;\n    description:string;\n    iconTitle:string;\n    tags:string[];\n}",
+            "properties": [
+                {
+                    "name": "description",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 3
+                },
+                {
+                    "name": "iconTitle",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 4
+                },
+                {
+                    "name": "tags",
+                    "type": "string[]",
+                    "optional": false,
+                    "description": "",
+                    "line": 5
+                },
+                {
+                    "name": "title",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 2
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 150,
+            "methods": []
+        }
+    ],
+    "injectables": [],
+    "classes": [],
+    "directives": [],
+    "components": [
+        {
+            "name": "AppComponent",
+            "id": "component-AppComponent-f4847c704c21450b4e45f67eac70f912",
+            "file": "src/app/app.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-root",
+            "styleUrls": [
+                "./app.component.css"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./app.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\nimport { IPresentGroup } from './models/present-group.model';\n\n@Component({\n  selector: 'app-root',\n  templateUrl: './app.component.html',\n  styleUrls: ['./app.component.css']\n})\nexport class AppComponent {}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./app.component.css"
+                }
+            ],
+            "stylesData": "",
+            "templateData": ""
+        },
+        {
+            "name": "PresentGroupComponent",
+            "id": "component-PresentGroupComponent-9672978221b2635458364b93de251b98",
+            "file": "src/app/components/present-group/present-group.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-present-group",
+            "styleUrls": [
+                "./present-group.component.css"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./present-group.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "presentGroup",
+                    "line": 11,
+                    "type": "IPresentGroup"
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 15
+                }
+            ],
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\nimport { IPresentGroup } from '../../models/present-group.model';\n\n@Component({\n  selector: 'app-present-group',\n  templateUrl: './present-group.component.html',\n  styleUrls: ['./present-group.component.css']\n})\nexport class PresentGroupComponent implements OnInit {\n\n  @Input() presentGroup:IPresentGroup;\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "button.group-container {\n    border: 2px solid #b9b7b7;\n    border-radius: 8px;\n    background: white;\n    margin-right: 20px;    \n    padding: 0 20px 20px 20px;\n    text-align: left;\n    width: 100%;   \n}\n\nbutton.group-container:focus {\n    background-color: #cbc2fe;\n    border-color: #8774f3;\n}\n\np.title {\n    font-size: 20px;\n    font-weight: 600;\n}\n\np.description {\n    font-size: 16px;\n}\n\ndiv.tag-container {\n    margin-top: 30px;\n    overflow-x: auto;\n    padding: 5px 0;\n}\n\ndiv.tag-container span {\n    background-color: #4D9D32;\n    padding: 5px 10px;\n    border-radius: 20px;\n    margin-right: 12px;\n    color: white;\n    font-size: 14px;    \n}\n\n@media only screen and (max-width: 992px){ \n    button.group-container {   \n        padding: 0 10px 10px 10px;\n    }\n\n    p.title {\n        margin-top: 5px;\n        font-size: 18px;\n    }\n\n    p.description {\n        font-size: 16px;\n    }\n\n    div.tag-container {\n        margin-top: 20px;\n    }\n\n}",
+                    "styleUrl": "./present-group.component.css"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [],
+                "line": 11
+            },
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<button class=\"group-container\">\n    <p class=\"title\">{{presentGroup?.title}} <span [innerHTML]=\"presentGroup?.iconTitle\"></span></p>\n    <p class=\"description\">{{presentGroup?.description}}</p>\n    <div class=\"tag-container\">\n        <span *ngFor=\"let tag of presentGroup?.tags\">{{tag}}</span>\n    </div>\n</button>\n"
+        },
+        {
+            "name": "PresentGroupListComponent",
+            "id": "component-PresentGroupListComponent-12befb0abf400e97f92a46e6225f1482",
+            "file": "src/app/components/present-group-list/present-group-list.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-present-group-list",
+            "styleUrls": [
+                "./present-group-list.component.css"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./present-group-list.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "presentGroupList",
+                    "defaultValue": "[]",
+                    "line": 11,
+                    "type": "IPresentGroup[]"
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 15
+                }
+            ],
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\nimport { IPresentGroup } from '../../models/present-group.model';\n\n@Component({\n  selector: 'app-present-group-list',\n  templateUrl: './present-group-list.component.html',\n  styleUrls: ['./present-group-list.component.css']\n})\nexport class PresentGroupListComponent implements OnInit {\n\n  @Input() presentGroupList:IPresentGroup[] = [];\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "div.present-group-container {\n    display: flex;\n    overflow-x: auto; \n    padding: 20px;\n}\n\n.present-group {\n    min-width: 40%;\n    margin-right: 20px;\n}\n\np.title {\n    font-size: 18px;\n    font-weight: 600;\n}\n\n@media only screen and (max-width: 992px){ \n    div.present-group-container {\n        flex-flow: column;\n        overflow-x: hidden;\n        overflow-y: auto;\n        padding: 10px;\n    }\n\n    .present-group {\n        width: 100%;\n        margin-right: 0px;\n        margin-bottom: 5px;\n        max-width: 100%;\n    }\n}\n",
+                    "styleUrl": "./present-group-list.component.css"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [],
+                "line": 11
+            },
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<div class=\"present-group-container\">\n    <div *ngIf=\"presentGroupList.length == 0\">\n        <p class=\"title\">Empty List</p>\n        <p class=\"description\">You have no presents groups created</p>\n\n    </div>\n    \n    <app-present-group class=\"present-group\" *ngFor=\"let presentGroup of presentGroupList\" [presentGroup]=\"presentGroup\"></app-present-group>\n</div>"
+        }
+    ],
+    "modules": [
+        {
+            "name": "AppModule",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "AppComponent"
+                        },
+                        {
+                            "name": "PresentGroupComponent"
+                        },
+                        {
+                            "name": "PresentGroupListComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": []
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": [
+                        {
+                            "name": "AppComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        }
+    ],
+    "miscellaneous": {
+        "variables": [
+            {
+                "name": "Base",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/present-group.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Base",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/present-group-list.stories.ts",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "environment",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/environments/environment.prod.ts",
+                "type": "object",
+                "defaultValue": "{\n  production: true\n}"
+            },
+            {
+                "name": "environment",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/environments/environment.ts",
+                "type": "object",
+                "defaultValue": "{\n  production: false\n}"
+            },
+            {
+                "name": "mock",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/jest-config/__mocks__/globalMocks.ts",
+                "type": "",
+                "defaultValue": "() => {\n    let storage = {};\n    return {\n      getItem: key => (key in storage ? storage[key] : null),\n      setItem: (key, value) => (storage[key] = value || ''),\n      removeItem: key => delete storage[key],\n      clear: () => (storage = {}),\n    };\n  }"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/present-group.stories.ts",
+                "type": "Story<PresentGroupComponent>",
+                "defaultValue": "(args) => ({\n  component: PresentGroupComponent,\n  props:args,\n  argTypes: {\n    presentGroup: {\n      control: 'object',\n      name: \"Text and tags of Present Group\",\n      description: \"Display the text, description and tags\"      \n    },\n  },\n  template: `<app-present-group [presentGroup]=\"presentGroup\"></app-present-group>`,  \n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/components/present-group-list.stories.ts",
+                "type": "Story<PresentGroupListComponent>",
+                "defaultValue": "(args) => ({\n  component: PresentGroupListComponent,\n  props: args,\n  argTypes: {\n    presentGroupList: {\n      control: 'object',\n      name: \"List of Present Groups\",\n      description: \"Display a list with horizontal scroll in desktop and list on mobile and tablet\"      \n    },\n  },    \n  template: `<app-present-group-list [presentGroupList]=\"presentGroupList\"></app-present-group-list>`,\n})"
+            }
+        ],
+        "functions": [],
+        "typealiases": [],
+        "enumerations": [],
+        "groupedVariables": {
+            "src/stories/components/present-group.stories.ts": [
+                {
+                    "name": "Base",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/present-group.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/present-group.stories.ts",
+                    "type": "Story<PresentGroupComponent>",
+                    "defaultValue": "(args) => ({\n  component: PresentGroupComponent,\n  props:args,\n  argTypes: {\n    presentGroup: {\n      control: 'object',\n      name: \"Text and tags of Present Group\",\n      description: \"Display the text, description and tags\"      \n    },\n  },\n  template: `<app-present-group [presentGroup]=\"presentGroup\"></app-present-group>`,  \n})"
+                }
+            ],
+            "src/stories/components/present-group-list.stories.ts": [
+                {
+                    "name": "Base",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/present-group-list.stories.ts",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/components/present-group-list.stories.ts",
+                    "type": "Story<PresentGroupListComponent>",
+                    "defaultValue": "(args) => ({\n  component: PresentGroupListComponent,\n  props: args,\n  argTypes: {\n    presentGroupList: {\n      control: 'object',\n      name: \"List of Present Groups\",\n      description: \"Display a list with horizontal scroll in desktop and list on mobile and tablet\"      \n    },\n  },    \n  template: `<app-present-group-list [presentGroupList]=\"presentGroupList\"></app-present-group-list>`,\n})"
+                }
+            ],
+            "src/environments/environment.prod.ts": [
+                {
+                    "name": "environment",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/environments/environment.prod.ts",
+                    "type": "object",
+                    "defaultValue": "{\n  production: true\n}"
+                }
+            ],
+            "src/environments/environment.ts": [
+                {
+                    "name": "environment",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/environments/environment.ts",
+                    "type": "object",
+                    "defaultValue": "{\n  production: false\n}"
+                }
+            ],
+            "src/jest-config/__mocks__/globalMocks.ts": [
+                {
+                    "name": "mock",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/jest-config/__mocks__/globalMocks.ts",
+                    "type": "",
+                    "defaultValue": "() => {\n    let storage = {};\n    return {\n      getItem: key => (key in storage ? storage[key] : null),\n      setItem: (key, value) => (storage[key] = value || ''),\n      removeItem: key => delete storage[key],\n      clear: () => (storage = {}),\n    };\n  }"
+                }
+            ]
+        },
+        "groupedFunctions": {},
+        "groupedEnumerations": {},
+        "groupedTypeAliases": {}
+    },
+    "routes": [],
+    "coverage": {
+        "count": 0,
+        "status": "low",
+        "files": [
+            {
+                "filePath": "src/app/app.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "AppComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/present-group-list/present-group-list.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "PresentGroupListComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/4",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/present-group/present-group.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "PresentGroupComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/4",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/models/present-group.model.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "IPresentGroup",
+                "coveragePercent": 0,
+                "coverageCount": "0/5",
+                "status": "low"
+            },
+            {
+                "filePath": "src/environments/environment.prod.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "environment",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/environments/environment.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "environment",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/jest-config/__mocks__/globalMocks.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "mock",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/present-group-list.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Base",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/present-group-list.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/present-group.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Base",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/components/present-group.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            }
+        ]
+    }
+}
